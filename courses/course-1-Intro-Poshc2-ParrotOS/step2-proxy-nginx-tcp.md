@@ -10,16 +10,16 @@
     sudo vim /etc/nginx/conf.d/lp_proxy.conf
     ```
 4. Paste the follwing in `lp_proxy.conf`
-    ```nginx
-server {
-    listen 80;
-    #NOTE: This line is so payloads can be downloaded over port 80 using Powershell
-    server_name <IP of Proxy Server>;
+    ```
+    server {
+        listen 80;
+        #NOTE: This line is so payloads can be downloaded over port 80 using Powershell
+        server_name <IP of Proxy Server>;
 
-    location / {
-        proxy_pass https://<posh-server IP>:<Posh bind port>;
+        location / {
+            proxy_pass https://<posh-server IP>:<Posh bind port>;
+        }
     }
-}
     ```
 
 5. Now lets reload Nginx with the new config files
