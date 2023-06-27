@@ -28,3 +28,5 @@
     ```powershell
     sharpps get-scheduledtask -Taskname "Persistence Test"
     ```
+
+    ## [Return to course page](README.md) or [Go To Next Step](step4-nginx-ssl-setup.md)

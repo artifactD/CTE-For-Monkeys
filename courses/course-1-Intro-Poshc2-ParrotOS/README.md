@@ -24,8 +24,8 @@ For any new to CTE we cna start at the beginning of the course and make your way
 # Course Catalog 
 | Course                                            | Description                                                 |
 |---------------------------------------------------|-------------------------------------------------------------|
-| [Intro to Poshc2/ParrotOS](parrot-step1.md)       | Learn how to setup both `ParrotOS` and `Poshc2`             |
-| [Implementing Ubuntu Proxy](proxy-step2-nginx.md) | Learn how to setup C2 coms proxy using `Nginx` and `Ubuntu` |
+| [Intro to Poshc2/ParrotOS](step1-parrot.md)       | Learn how to setup both `ParrotOS` and `Poshc2`             |
+| [Implementing Ubuntu Proxy](step2-proxy-nginx.md) | Learn how to setup C2 coms proxy using `Nginx` and `Ubuntu` |
 
 
 # VMs 
