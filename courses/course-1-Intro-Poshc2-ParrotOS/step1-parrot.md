@@ -18,7 +18,7 @@ Edit the configuration for your project:
 ```
 posh-config
 ```
-Edit `bindport` to 80, the `payloadcommshost` to http://<parrot IP> (Make sure you delete the s in https)
+Edit `bindport` to **80**, the `payloadcommshost` to **http://<parrot IP>** (Make sure you delete the s in https)
 
 Launch the Poshc2 server:
 ```
