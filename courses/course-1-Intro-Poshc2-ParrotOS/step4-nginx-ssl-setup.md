@@ -13,18 +13,19 @@
     > **NOTE:** Make sure you are in your users home folder `/home/<username>
 4. Then lets move over to our ubuntu server and edit our `/etc/nginx/conf.d/lp_proxy.conf` and add our SSL rules underneath our rules for port 80 comms
     ```nginx
-    server {
-        listen 443;
-        server_name <ubuntu_server_ip>
+server {
+    listen 443;
+    #443 is for payload comms
+    server_name <IP of Proxy Server>;
 
-        ssl_certificate /etc/nginx/posh.crt;
-        ssl_certificate_key /etc/nginc/posh.key;
-        ssl on;
+    ssl_certificate /etc/nginx/posh.crt;
+    ssl_certificate_key /etc/nginx/posh.key;
+    ssl on;
 
-        location / {
-            proxy_pass https://192.168.178.128;
-        }
+    location / {
+        proxy_pass https://<posh-server IP>:<Posh bind port>;
     }
+}
     ```
 
 5. Now reload nginx

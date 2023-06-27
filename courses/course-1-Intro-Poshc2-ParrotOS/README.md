@@ -9,7 +9,7 @@
 		- host enumeration 
 		- user escalation
 		- persistence / scripting
-		- later movement
+		- lateral movement
         - file download
 - living of the land ( windows )
 	- file downloads 
@@ -19,7 +19,7 @@
 	- domain enumeration 
 	- scripting
 
-For any new to CTE we cna start at the beginning of the course and make your way through the courses. 
+For any new to CTE we can start at the beginning of the course and make your way through the courses. 
 
 # Course Catalog 
 | Course                                            | Description                                                 |

