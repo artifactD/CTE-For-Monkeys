@@ -26,7 +26,7 @@
     ```bash 
     sudo systemctl restart nginx.service
     ```
-6. From here, create a poshc2 project with the bind port set to 80, and in `payloadcomshost` set your `http://proxy-ip:80`
+6. From here, create a poshc2 project with the bind port set to 80, and in `payloadcomshost` set your `http://proxy-ip`
 
 7. Host your payload however and download on victim 
 
