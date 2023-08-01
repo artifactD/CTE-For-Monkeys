@@ -84,7 +84,7 @@ Search for any processes being ran as SYSTEM, to inject into.
 inject-shellcode <PID> 
 ```
 ```ps
-Sharp_x64_Shellcode.bin
+Sharp_v4_x64_Shellcode.bin
 ```
 
 Checking your ImplantHandler you should see a new beacon running in the context of said user.
