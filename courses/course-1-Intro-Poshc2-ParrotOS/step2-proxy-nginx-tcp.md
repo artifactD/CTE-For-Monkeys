@@ -7,7 +7,7 @@
     ```
 3. Now lets create a config file for pass through connections 
     ```bash 
-    sudo vim /etc/nginx/conf.d/lp_proxy.conf
+    sudo vi /etc/nginx/conf.d/lp_proxy.conf
     ```
 4. Paste the follwing in `lp_proxy.conf`
     ```
